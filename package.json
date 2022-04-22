@@ -2,8 +2,8 @@
   "name": "gnosis",
   "version": "1.0.0",
   "description": "SAFE APP USING NODEJS",
+  "type": "commonjs",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,9 +15,11 @@
   "license": "ISC",
   "dependencies": {
     "@gnosis.pm/safe-core-sdk": "^2.1.0",
+    "@gnosis.pm/safe-core-sdk-types": "^1.1.0",
     "@gnosis.pm/safe-ethers-lib": "^1.1.0",
     "@gnosis.pm/safe-service-client": "^1.1.2",
     "@gnosis.pm/safe-web3-lib": "^1.1.0",
+    "dotenv": "^16.0.0",
     "ethers": "^5.6.4",
     "web3": "^1.7.3"
   },
