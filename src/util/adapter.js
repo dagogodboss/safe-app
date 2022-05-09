@@ -11,7 +11,6 @@ const infuraProvider = new ethers.providers.InfuraProvider("rinkeby", {
 // const signer = infuraProvider.getSigner(safeOwner);
 
 const privateKey = '0x7e853aca230bcc4cf0710b25f84ae400283081537ab5f2a4e1b1607a627a4837';
-console.log("Private key", privateKey)
 const wallet = new ethers.Wallet(
     privateKey,
     infuraProvider
@@ -25,6 +24,16 @@ const getEthAdapter = async () => {
     return ethAdapter;
 }
 
+const privateKey2 = '0x80ea3f76d28b7487afe9f89264d8f61fb86448deff112f381419c4fc58a383d6';
+const wallet2 = new ethers.Wallet(privateKey2, infuraProvider);
+
+const getSecondDelegateEthAdapter = async () => {
+    const account = await wallet2.connect(infuraProvider);
+    return new EthersAdapter({
+        ethers,
+        signer: account,
+    })
+}
 const getChainId = async () => {
     return await (await getEthAdapter()).getChainId();
 };
@@ -34,4 +43,5 @@ module.exports = {
     getEthAdapter,
     infuraProvider,
     getChainId,
+    getSecondDelegateEthAdapter
 };
